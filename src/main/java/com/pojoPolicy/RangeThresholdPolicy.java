@@ -1,0 +1,14 @@
+package com.pojoPolicy;
+
+import com.pojo.Hot;
+import com.pojo.RangeThreshold;
+
+import java.util.List;
+
+public interface RangeThresholdPolicy {
+    /*根据序列差值划分点集合*/
+   // List <List <RangeThreshold>> divideHotsByTiemthreshold(List <RangeThreshold> rangeThresholds,int timeThreshold);
+    List <List <RangeThreshold>> divideHotsByTiemthreshold(List <Hot> hots, int timeThreshold);
+    /*计算簇的序列差值*/
+    int CalculateSequenceDifference(List <RangeThreshold> rangeThresholds, int difference);
+}
