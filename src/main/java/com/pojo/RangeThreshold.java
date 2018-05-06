@@ -7,7 +7,7 @@ public class RangeThreshold {
     private int x;
     //  坐标y
     private int y;
-    //范围名臣
+    //范围名称
     private String rangeName;
 
     public Integer getRangeId() {
