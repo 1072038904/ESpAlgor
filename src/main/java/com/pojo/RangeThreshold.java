@@ -9,7 +9,11 @@ public class RangeThreshold {
     private int y;
     //范围名称
     private String rangeName;
-
+    //Use Hot initialize the rangeThreshold
+    public void initializeRnageTHresholdByHot(Hot hot){
+        this.setX(hot.getX());
+        this.setY(hot.getY());
+    }
     public Integer getRangeId() {
         return rangeId;
     }
