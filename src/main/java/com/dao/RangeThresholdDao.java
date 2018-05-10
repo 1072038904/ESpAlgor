@@ -7,20 +7,20 @@ import java.util.List;
 
 public interface RangeThresholdDao {
     //判断该实体是否在在数据库中  return 0表示不存在  return 非0 表示存在
-    public Integer isExisted(RangeThreshold rangeThreshold);
+    Integer isExisted(RangeThreshold rangeThreshold);
 
     // 根据rangeName查询所有的点
-    public List<RangeThreshold> allPointByRangeName(String rangeName);
+    List<RangeThreshold> allPointByRangeName(String rangeName);
 
     //插入点
-    public int insertNewPoint(RangeThreshold rangeThreshold);
+    int insertNewPoint(RangeThreshold rangeThreshold);
 
     //更新点
-    public int updatePoint(RangeThreshold rangeThreshold);
+    int updatePoint(RangeThreshold rangeThreshold);
 
     //删除点
-    public int deletePoint(RangeThreshold rangeThreshold);
+    int deletePoint(RangeThreshold rangeThreshold);
 
     //查询出点
-    public RangeThreshold queryRangeThreshold(RangeThreshold threshold);
+    RangeThreshold queryRangeThreshold(RangeThreshold threshold);
 }
