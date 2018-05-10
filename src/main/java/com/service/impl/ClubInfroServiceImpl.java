@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class ClubInfroServiceImpl implements ClubInfroService {
     @Autowired
     private ClubInfroDao clubInfroDao;
+
     @Override
     public Club getClubInfroById(Integer clubId) {
         return clubInfroDao.getClubInfroById(clubId);

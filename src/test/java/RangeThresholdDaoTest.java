@@ -13,41 +13,55 @@ import java.util.List;
 public class RangeThresholdDaoTest {
     @Autowired
     private RangeThresholdDao rangeThresholdDao;
+
     // 点是否存在
     @Test
-    public void testIsHotExisted(){
-        RangeThreshold rangeThreshold=new RangeThreshold();
+    public void testIsHotExisted() {
+        RangeThreshold rangeThreshold = new RangeThreshold();
         rangeThreshold.setRangeId(1);
         rangeThreshold.setX(1);
         rangeThreshold.setY(1);
         rangeThreshold.setRangeName("test");
-        Integer res=rangeThresholdDao.isExisted(rangeThreshold);
+        Integer res = rangeThresholdDao.isExisted(rangeThreshold);
         System.out.print(res);
     }
+
     // 根据rangeName返回所有的点
     @Test
-    public void testAllPointByRangeName(){
-        String rangeName="qwe";
-        List <RangeThreshold> rangeThresholdList=rangeThresholdDao.allPointByRangeName(rangeName);
+    public void testAllPointByRangeName() {
+        String rangeName = "qwe";
+        List<RangeThreshold> rangeThresholdList = rangeThresholdDao.allPointByRangeName(rangeName);
         System.out.print(rangeThresholdList.size());
     }
+
     // 删除点
     @Test
-    public void testDeletePint(){
-        RangeThreshold rangeThreshold=new RangeThreshold();
+    public void testDeletePint() {
+        RangeThreshold rangeThreshold = new RangeThreshold();
         rangeThreshold.setX(1);
         rangeThreshold.setY(1);
-        int res=rangeThresholdDao.deletePoint(rangeThreshold);
-        System.out.print("res"+res);
+        int res = rangeThresholdDao.deletePoint(rangeThreshold);
+        System.out.print("res" + res);
     }
+
     //插入点
     @Test
-    public void testInsertNewPoint(){
-        RangeThreshold rangeThreshold=new RangeThreshold();
+    public void testInsertNewPoint() {
+        RangeThreshold rangeThreshold = new RangeThreshold();
         rangeThreshold.setX(5);
         rangeThreshold.setX(5);
         rangeThreshold.setRangeName("insert");
-        int res=rangeThresholdDao.insertNewPoint(rangeThreshold);
-        System.out.print("res:"+res);
+        int res = rangeThresholdDao.insertNewPoint(rangeThreshold);
+        System.out.print("res:" + res);
+    }
+
+    //    查询点
+    @Test
+    public void testQueryRangeThreshold() {
+        RangeThreshold rangeThreshold1 = new RangeThreshold();
+        rangeThreshold1.setX(2);
+        rangeThreshold1.setY(2);
+        RangeThreshold res = rangeThresholdDao.queryRangeThreshold(rangeThreshold1);
+        System.out.print(res.getRangeId());
     }
 }
