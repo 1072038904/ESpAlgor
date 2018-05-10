@@ -47,8 +47,13 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
 
     @Override
     public Map<String ,List<Hot>> divideHotsByRange(List<Hot> hots, int timeThreshold) {
-        //初始化12个clusters
         Map<String,List<Hot>> hotMap = new HashMap<>();
+        //initialize the 12 clusters
+        List<String> rangeNameList = rangeThresholdDao.queryAllRangeName();
+        for(Iterator<String> rangeName = rangeNameList.iterator();rangeName.hasNext();){
+            List<Hot> list = new ArrayList<>();
+            hotMap.put(rangeName.next(),list);
+        }
         for(Iterator<Hot> it = hots.iterator(); it.hasNext();){
             Hot hot = it.next();
             RangeThreshold rangeThreshold = new RangeThreshold();
@@ -57,10 +62,10 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
             //Map to save the cluseters divided
             if(judgeKey==0){
                 RangeThreshold threshold = queryRangeThreshold(rangeThreshold);
-
-               // hotMap.put(threshold.getRangeName(),hot);
+                hotMap.get(threshold.getRangeName()).add(hot);
             }
         }
+
         return hotMap;
     }
     public static void main(String args[]){
