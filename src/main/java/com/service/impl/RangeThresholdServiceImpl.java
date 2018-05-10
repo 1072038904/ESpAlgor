@@ -29,6 +29,7 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
 
     @Override
     public RangeThreshold queryRangeThreshold(RangeThreshold threshold) {
+
         return null;
     }
 
@@ -56,6 +57,7 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
             //Map to save the cluseters divided
             if(judgeKey==0){
                 RangeThreshold threshold = queryRangeThreshold(rangeThreshold);
+
                // hotMap.put(threshold.getRangeName(),hot);
             }
         }
@@ -69,9 +71,9 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
     String b = "2";
     String c = "3";
     mapList.get("acm").add(a);
-        mapList.get("acm").add(b);
-        mapList.get("acm").add(c);
-        System.out.println(mapList.get("acm"));
+    mapList.get("acm").add(b);
+    mapList.get("acm").add(c);
+    System.out.println(mapList.get("acm"));
    // mapList.add(map);
    // map.
     //System.out.println(mapList.);

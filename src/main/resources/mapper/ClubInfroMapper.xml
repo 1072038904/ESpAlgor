@@ -6,4 +6,5 @@
         from club
         where clubId=#{clubId}
     </select>
+
 </mapper>
