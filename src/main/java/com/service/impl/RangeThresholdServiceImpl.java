@@ -4,6 +4,7 @@ import com.dao.RangeThresholdDao;
 import com.pojo.Hot;
 import com.pojo.RangeThreshold;
 import com.service.RangeThresholdService;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,9 +45,9 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
     }
 
     @Override
-    public Map<String ,Hot> divideHotsByRange(List<Hot> hots, int timeThreshold) {
+    public Map<String ,List<Hot>> divideHotsByRange(List<Hot> hots, int timeThreshold) {
         //初始化12个clusters
-        Map<String,Hot> hotMap = new HashMap<>();
+        Map<String,List<Hot>> hotMap = new HashMap<>();
         for(Iterator<Hot> it = hots.iterator(); it.hasNext();){
             Hot hot = it.next();
             RangeThreshold rangeThreshold = new RangeThreshold();
@@ -55,20 +56,26 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
             //Map to save the cluseters divided
             if(judgeKey==0){
                 RangeThreshold threshold = queryRangeThreshold(rangeThreshold);
-                hotMap.put(threshold.getRangeName(),hot);
+               // hotMap.put(threshold.getRangeName(),hot);
             }
         }
         return hotMap;
     }
     public static void main(String args[]){
-        List<String> list = new ArrayList<>();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        for(Iterator<String> it = list.iterator();it.hasNext();){
-          //  System.out.println(it.next());
-           // System.out.println("而"+it.next());
-        }
+    Map<String,List<String>> mapList = new HashMap<>();
+    List<String> list= new ArrayList<>();
+    mapList.put("acm",list);
+    String a = "1";
+    String b = "2";
+    String c = "3";
+    mapList.get("acm").add(a);
+        mapList.get("acm").add(b);
+        mapList.get("acm").add(c);
+        System.out.println(mapList.get("acm"));
+   // mapList.add(map);
+   // map.
+    //System.out.println(mapList.);
+
+    //System.out.println(intmap.get("1"));
     }
 }

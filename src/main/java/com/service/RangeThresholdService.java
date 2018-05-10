@@ -18,6 +18,6 @@ public interface RangeThresholdService {
     // 删除点
     int deletePoint(RangeThreshold rangeThreshold);
     //用固定的12簇来划分所有的点
-    Map<String ,Hot> divideHotsByRange(List<Hot> hots, int timeThreshold);
+    Map<String ,List<Hot>> divideHotsByRange(List<Hot> hots, int timeThreshold);
 
 }

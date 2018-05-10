@@ -23,7 +23,4 @@ public interface RangeThresholdDao {
 
     //查询出点
     public RangeThreshold queryRangeThreshold(RangeThreshold threshold);
-
-    //用固定的12簇来划分所有的点
-    public List<List<Hot>> divideHotsByRange(List<Hot> hots, int timeThreshold);
 }

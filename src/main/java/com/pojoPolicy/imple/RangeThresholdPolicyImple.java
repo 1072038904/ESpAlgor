@@ -33,8 +33,7 @@ public class RangeThresholdPolicyImple implements RangeThresholdPolicy {
     }
 
     @Override
-    public Map<String, List<Hot>> mainAnalysis() {
-
+    public Map<String, List<Hot>> mainAnalysis(Map<String, Hot> hotMap) {
         return null;
     }
 }
