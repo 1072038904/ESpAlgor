@@ -6,6 +6,7 @@ import com.pojoPolicy.RangeThresholdPolicy;
 import org.w3c.dom.ranges.Range;
 
 import javax.swing.text.html.HTMLDocument;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +34,29 @@ public class RangeThresholdPolicyImple implements RangeThresholdPolicy {
     }
 
     @Override
-    public Map<String, List<Hot>> mainAnalysis(Map<String, Hot> hotMap) {
-        return null;
+    public List<List<Hot>> mainAnalysis(List<Hot> hotList) {
+        List<List<Hot>> resultList = new ArrayList<>();
+        List<Hot> init = new ArrayList<>();
+        resultList.add(init);
+        for(int i = 1;i<hotList.size();i++){
+            int value = hotList.get(i).getTimeId()-hotList.get(i-1).getTimeId();
+            if(value!=1) {
+                List<Hot> tempList = new ArrayList<>();
+                resultList.add(tempList);
+            }
+        }
+            int j=0;
+            resultList.get(j).add(hotList.get(0));
+            for(int i = 1;i<hotList.size();i++){
+                int value = hotList.get(i).getTimeId()-hotList.get(i-1).getTimeId();
+                if(value==1){
+                    resultList.get(j).add(hotList.get(i));
+                }
+                else {
+                    resultList.get(j+1).add(hotList.get(i));
+                    j=j+1;
+                }
+        }
+        return resultList;
     }
 }

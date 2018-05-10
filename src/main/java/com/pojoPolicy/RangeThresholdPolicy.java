@@ -15,5 +15,5 @@ public interface RangeThresholdPolicy {
     /*initialize the 12 cluseters by using Map (the key is the rangeName)*/
     Map<String,Hot> initializeClusters();
     /*对按序列差值划分后的集合进行差值计算，并进行标记*/
-    Map<String,List<Hot>> mainAnalysis(Map<String,Hot> hotMap);
+    List<List<Hot>> mainAnalysis(List<Hot> hotList);
 }
