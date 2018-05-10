@@ -2,6 +2,7 @@ package com.dao;
 
 import com.pojo.Hot;
 import com.pojo.RangeThreshold;
+import com.pojo.vo.HotList;
 
 import java.util.List;
 
@@ -25,5 +26,5 @@ public interface RangeThresholdDao {
     public RangeThreshold queryRangeThreshold(RangeThreshold threshold);
 
     //用固定的12簇来划分所有的点
-    public List<List<Hot>> divideHotsByRange(List<Hot> hots, int timeThreshold);
+    public List<HotList> divideHotsByRange(HotList hotList, int timeThreshold);
 }
