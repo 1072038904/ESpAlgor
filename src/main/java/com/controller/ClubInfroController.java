@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ClubInfroController {
     @Autowired
     private ClubInfroService clubInfroService;
+
     @RequestMapping("getClubInfro.do")
     @ResponseBody
-    public Club getClubInfroById(Integer clubId){
+    public Club getClubInfroById(Integer clubId) {
         return clubInfroService.getClubInfroById(clubId);
         //return null;
     }

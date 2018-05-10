@@ -20,6 +20,12 @@
         from range_threshold
         where rangeName=#{rangeName}
     </select>
+    <!--查询点-->
+    <select id="queryRangeThreshold" parameterType="RangeThreshold" resultType="RangeThreshold">
+        select *
+        from range_threshold
+        where x=#{x} and y=#{y}
+    </select>
     <!--删除点-->
     <delete id="deletePoint" parameterType="RangeThreshold">
         delete
