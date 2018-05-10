@@ -44,24 +44,21 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
     }
 
     @Override
-    public List<List<Hot>> divideHotsByRange(List<Hot> hots, int timeThreshold) {
+    public Map<String ,Hot> divideHotsByRange(List<Hot> hots, int timeThreshold) {
         //初始化12个clusters
+        Map<String,Hot> hotMap = new HashMap<>();
         for(Iterator<Hot> it = hots.iterator(); it.hasNext();){
             Hot hot = it.next();
             RangeThreshold rangeThreshold = new RangeThreshold();
             rangeThreshold.initializeRnageTHresholdByHot(hot);
             int judgeKey = isExisted(rangeThreshold);
             //Map to save the cluseters divided
-            Map<String,Hot> hotMap = new HashMap<>();
             if(judgeKey==0){
                 RangeThreshold threshold = queryRangeThreshold(rangeThreshold);
                 hotMap.put(threshold.getRangeName(),hot);
             }
-            else{
-
-            }
         }
-        return null;
+        return hotMap;
     }
     public static void main(String args[]){
         List<String> list = new ArrayList<>();

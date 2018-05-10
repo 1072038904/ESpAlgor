@@ -16,9 +16,6 @@ public class RangeThresholdPolicyImple implements RangeThresholdPolicy {
     @Override
     public List<List<RangeThreshold>> divideHotsByTiemthreshold(List<Hot> hots, int timeThreshold) {
        //初始化12个clusters
-        for(Iterator<Hot> it = hots.iterator();it.hasNext();){
-
-        }
         return null;
     }
 
@@ -31,6 +28,12 @@ public class RangeThresholdPolicyImple implements RangeThresholdPolicy {
 
     @Override
     public Map<String, Hot> initializeClusters() {
+
+        return null;
+    }
+
+    @Override
+    public Map<String, List<Hot>> mainAnalysis() {
 
         return null;
     }
