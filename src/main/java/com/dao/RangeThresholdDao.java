@@ -23,4 +23,7 @@ public interface RangeThresholdDao {
 
     //查询出点
     RangeThreshold queryRangeThreshold(RangeThreshold threshold);
+
+    //查询出所有的rangeName并去重（即获取所有分类的rangeName）
+    List<String> queryAllRangeName();
 }
