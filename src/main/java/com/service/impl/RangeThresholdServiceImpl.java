@@ -3,6 +3,8 @@ package com.service.impl;
 import com.dao.RangeThresholdDao;
 import com.pojo.Hot;
 import com.pojo.RangeThreshold;
+import com.pojoPolicy.RangeThresholdPolicy;
+import com.pojoPolicy.imple.RangeThresholdPolicyImple;
 import com.service.RangeThresholdService;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import java.util.*;
 public class RangeThresholdServiceImpl implements RangeThresholdService {
     @Autowired
     private RangeThresholdDao rangeThresholdDao;
+    private RangeThresholdPolicy rangeThresholdPolicy = new RangeThresholdPolicyImple();
 
     @Override
     public List<RangeThreshold> allPointByRangeName(String rangeName) {
@@ -67,7 +70,7 @@ public class RangeThresholdServiceImpl implements RangeThresholdService {
         }
         for(Iterator<String> rangeName = rangeNameList.iterator();rangeName.hasNext();){
             List<Hot> hotList = hotMap.get(rangeName.next());
-
+            List<List<Hot>> listList = rangeThresholdPolicy.mainAnalysis(hotList);//即区域内划分好的簇
         }
         return hotMap;
     }
